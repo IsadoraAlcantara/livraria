@@ -13,7 +13,7 @@ from core.views import UserViewSet, CategoriaViewSet
 
 router = DefaultRouter()
 
-router.register(r"categorias", CategoriaViewSet, basename="categ    orias")
+router.register(r"categorias", CategoriaViewSet, basename="categorias")
 router.register(r"users", UserViewSet, basename="users")
 
 urlpatterns = [
