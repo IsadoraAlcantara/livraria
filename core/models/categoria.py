@@ -1,4 +1,6 @@
 from django.db import models
+
+
 # sempre deixar duas linhas entre from e class
 # cada class é uma tabela
 class Categoria(models.Model):
