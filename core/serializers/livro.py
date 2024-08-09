@@ -8,8 +8,15 @@ class LivroSerializer(ModelSerializer):
         model = Livro
         fields = "__all__"
 
+
 class LivroDetailSerializer(ModelSerializer):
     class Meta:
         model = Livro
         fields = "__all__"
         depth = 1  # busca as fk, mostrando os atributos das fk no json
+
+
+class LivroListSerializer(ModelSerializer):
+    class Meta:
+        model = Livro
+        fields = ["id", "titulo", "preco"]
