@@ -4,6 +4,8 @@ from .categoria import Categoria
 from .editora import Editora
 from .autor import Autor
 
+from uploader.models import Image
+
 
 class Livro(models.Model):
     titulo = models.CharField(max_length=255)
@@ -15,6 +17,14 @@ class Livro(models.Model):
     autor = models.ManyToManyField(Autor, related_name="livros", blank=True, null=True)  # livro n:n autor
     # autor = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livrosAutor", blank=True, null=True) livro 1:n autor
     # coautor = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livrosCoautor", blank=True, null=True) livro 1:n coautor
+    capa = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
 
     def __str__(self):
         return f"({self.id}) {self.titulo} ({self.quantidade})"
