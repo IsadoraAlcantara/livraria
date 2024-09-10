@@ -46,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     foto = models.ForeignKey(
         Image,
         related_name="+",
-        on_delete=models.SET_NULL, # se apagar a foto, vira null
+        on_delete=models.SET_NULL,  # se apagar a foto, vira null
         null=True,
         blank=True,
         default=None,

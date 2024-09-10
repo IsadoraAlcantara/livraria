@@ -1,9 +1,9 @@
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
 
-
 from core.models import User
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
+
 
 class UserSerializer(ModelSerializer):
     foto_attachment_key = SlugRelatedField(
@@ -13,10 +13,7 @@ class UserSerializer(ModelSerializer):
         required=False,
         write_only=True,
     )
-    foto = ImageSerializer(
-        required=False,
-        read_only=True
-    )
+    foto = ImageSerializer(required=False, read_only=True)
 
     class Meta:
         model = User

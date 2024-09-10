@@ -6,7 +6,7 @@ from core.serializers import LivroDetailSerializer, LivroListSerializer, LivroSe
 
 class LivroViewSet(ModelViewSet):
     # queryset = Livro.objects.all()
-    queryset = Livro.objects.order_by("titulo") # ordernando alfabeticamente pelo título
+    queryset = Livro.objects.order_by("titulo")  # ordernando alfabeticamente pelo título
     serializer_class = LivroSerializer
 
     def get_serializer_class(self):
