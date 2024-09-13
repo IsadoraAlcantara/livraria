@@ -14,6 +14,14 @@ class Compra(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name="compras")
     status = models.IntegerField(choices=StatusCompra.choices, default=StatusCompra.CARRINHO)
 
+    @property
+    def total(self): # total da compra - não é gravado no banco
+        # total = 0
+        # for item in self.itens.all():
+        #     total += item.livro.preco * item.quantidade
+        # return total
+        return sum(item.livro.preco * item.quantidade for item in self.itens.all())
+
     def __str__(self):
         return f"({self.id}) {self.usuario} {self.status}"
 
